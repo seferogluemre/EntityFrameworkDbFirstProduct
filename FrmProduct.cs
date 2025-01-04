@@ -1,11 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace EntityFrameworkDbFirstProduct
@@ -19,16 +13,11 @@ namespace EntityFrameworkDbFirstProduct
         DbProductEntities database = new DbProductEntities();
         Product TableProduct = new Product();
 
-        string productName;
-        decimal productPrice;
-        int productStock;
-        int selectedCategory;
-
         private void clearTextBoxes()
         {
             TxtProductId.Clear();
             TxtProductName.Clear();
-            TxtProductPrice.Clear ();
+            TxtProductPrice.Clear();
             TxtProductStock.Clear();
             CmbProductCategory.Text = "";
         }
@@ -39,7 +28,12 @@ namespace EntityFrameworkDbFirstProduct
         }
         private void AddProduct()
         {
-            if(productName.Length >= 2 && productPrice.ToString() != "" && productStock.ToString()!="") 
+            string productName = TxtProductName.Text.Trim();
+            int productStock = int.Parse(TxtProductStock.Text.Trim());
+            decimal productPrice = decimal.Parse(TxtProductPrice.Text.Trim());
+            int selectedCategory = int.Parse(CmbProductCategory.SelectedValue.ToString());
+
+            if (productName.Length >= 2 && productPrice.ToString() != "" && productStock.ToString() != "")
             {
                 TableProduct.ProductName = productName.ToString();
                 TableProduct.ProductPrice = productPrice;
@@ -56,17 +50,30 @@ namespace EntityFrameworkDbFirstProduct
             }
         }
 
-
-
-
+        private void deleteProduct()
+        {
+            int productId = int.Parse(TxtProductId.Text.Trim());
+            if (productId.ToString() != "")
+            {
+                var values = database.Product.Find(productId);
+                database.Product.Remove(values);
+                database.SaveChanges();
+                ProductList();
+                clearTextBoxes();
+            }
+            else
+            {
+                MessageBox.Show("Hatalı id girişi", "Lütfen tekrar deneyiniz", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
 
         private void FrmProduct_Load(object sender, EventArgs e)
         {
             ProductList();
-            productName = TxtProductName.Text.Trim();
-            productPrice = decimal.Parse(TxtProductPrice.Text.Trim());
-            productStock= int.Parse(TxtProductStock.Text.Trim());
-            selectedCategory = int.Parse(CmbProductCategory.SelectedValue.ToString());
+            var values = database.Category.ToList();
+            CmbProductCategory.ValueMember = "CategoryId";
+            CmbProductCategory.DisplayMember = "CategoryName";
+            CmbProductCategory.DataSource = values;
         }
 
         private void BtnAdd_Click(object sender, EventArgs e)
@@ -76,7 +83,7 @@ namespace EntityFrameworkDbFirstProduct
 
         private void BtnDelete_Click(object sender, EventArgs e)
         {
-
+            deleteProduct();
         }
     }
 }
