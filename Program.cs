@@ -16,7 +16,7 @@ namespace EntityFrameworkDbFirstProduct
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new FrmProduct());
+            Application.Run(new FrmHome());
         }
     }
 }
