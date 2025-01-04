@@ -90,6 +90,7 @@
             this.BtnUpdate.TabIndex = 49;
             this.BtnUpdate.Text = "Güncelle";
             this.BtnUpdate.UseVisualStyleBackColor = false;
+            this.BtnUpdate.Click += new System.EventHandler(this.BtnUpdate_Click);
             // 
             // BtnDelete
             // 

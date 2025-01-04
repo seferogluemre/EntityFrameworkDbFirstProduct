@@ -71,7 +71,27 @@ namespace EntityFrameworkDbFirstProduct
                 MessageBox.Show("Hatalı id girişi", "Lütfen tekrar deneyiniz", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
+        private void updateProduct()
+        {
+            string productName = TxtProductName.Text.Trim();
+            int productStock = int.Parse(TxtProductStock.Text.Trim());
+            int productPrice = int.Parse(TxtProductPrice.Text.Trim());
+            int SelectedCategory = int.Parse(CmbProductCategory.SelectedValue.ToString());
+            int productId = Convert.ToInt32(TxtProductId.Text.Trim());
+            
+            var values = database.Product.Find(productId);
 
+            if (productId.ToString() != "" && productName.Length >= 2)
+            {
+                values.ProductName = productName.ToString();
+                values.ProductStock = productStock;
+                values.ProductPrice = productPrice;
+                values.CategoryId = SelectedCategory;
+                database.SaveChanges();
+                ProductList();
+                clearTextBoxes();
+            }
+        }
 
 
         private void FrmProduct_Load(object sender, EventArgs e)
@@ -92,6 +112,11 @@ namespace EntityFrameworkDbFirstProduct
         private void BtnDelete_Click(object sender, EventArgs e)
         {
             deleteProduct();
+        }
+
+        private void BtnUpdate_Click(object sender, EventArgs e)
+        {
+            updateProduct();
         }
     }
 }
