@@ -44,6 +44,7 @@
             this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.CmbProductCategory = new System.Windows.Forms.ComboBox();
+            this.button1 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -77,6 +78,7 @@
             this.BtnSearch.TabIndex = 50;
             this.BtnSearch.Text = "Ara";
             this.BtnSearch.UseVisualStyleBackColor = false;
+            this.BtnSearch.Click += new System.EventHandler(this.BtnSearch_Click);
             // 
             // BtnUpdate
             // 
@@ -131,7 +133,7 @@
             this.BtnList.Location = new System.Drawing.Point(28, 268);
             this.BtnList.Margin = new System.Windows.Forms.Padding(4, 2, 4, 3);
             this.BtnList.Name = "BtnList";
-            this.BtnList.Size = new System.Drawing.Size(386, 47);
+            this.BtnList.Size = new System.Drawing.Size(162, 47);
             this.BtnList.TabIndex = 46;
             this.BtnList.Text = "Listele";
             this.BtnList.UseVisualStyleBackColor = false;
@@ -226,6 +228,20 @@
             this.CmbProductCategory.Size = new System.Drawing.Size(275, 29);
             this.CmbProductCategory.TabIndex = 58;
             // 
+            // button1
+            // 
+            this.button1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(106)))), ((int)(((byte)(103)))));
+            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button1.Font = new System.Drawing.Font("Microsoft JhengHei", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button1.ForeColor = System.Drawing.Color.FloralWhite;
+            this.button1.Location = new System.Drawing.Point(242, 268);
+            this.button1.Margin = new System.Windows.Forms.Padding(4, 2, 4, 3);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(172, 47);
+            this.button1.TabIndex = 59;
+            this.button1.Text = "Listele";
+            this.button1.UseVisualStyleBackColor = false;
+            // 
             // FrmProduct
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 21F);
@@ -233,6 +249,7 @@
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.ClientSize = new System.Drawing.Size(1208, 535);
+            this.Controls.Add(this.button1);
             this.Controls.Add(this.CmbProductCategory);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.TxtProductStock);
@@ -282,5 +299,6 @@
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.ComboBox CmbProductCategory;
+        private System.Windows.Forms.Button button1;
     }
 }

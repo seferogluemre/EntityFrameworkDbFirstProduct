@@ -92,7 +92,11 @@ namespace EntityFrameworkDbFirstProduct
                 clearTextBoxes();
             }
         }
-
+        private void productNameSearch()
+        {
+            var values = database.Product.Where(products => products.ProductName == TxtProductName.Text.ToString()).ToList(); ;
+            dataGridView1.DataSource = values;
+        }
 
         private void FrmProduct_Load(object sender, EventArgs e)
         {
@@ -117,6 +121,11 @@ namespace EntityFrameworkDbFirstProduct
         private void BtnUpdate_Click(object sender, EventArgs e)
         {
             updateProduct();
+        }
+
+        private void BtnSearch_Click(object sender, EventArgs e)
+        {
+            productNameSearch();
         }
     }
 }
