@@ -30,13 +30,13 @@
         {
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.TxtCategoryId = new System.Windows.Forms.TextBox();
             this.BtnSearch = new System.Windows.Forms.Button();
             this.BtnUpdate = new System.Windows.Forms.Button();
             this.BtnDelete = new System.Windows.Forms.Button();
             this.BtnAdd = new System.Windows.Forms.Button();
             this.BtnList = new System.Windows.Forms.Button();
-            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.TxtCategoryName = new System.Windows.Forms.TextBox();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
@@ -61,13 +61,13 @@
             this.label2.TabIndex = 2;
             this.label2.Text = "Kategori Adı:";
             // 
-            // textBox1
+            // TxtCategoryId
             // 
-            this.textBox1.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.textBox1.Location = new System.Drawing.Point(123, 27);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(202, 29);
-            this.textBox1.TabIndex = 3;
+            this.TxtCategoryId.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.TxtCategoryId.Location = new System.Drawing.Point(123, 27);
+            this.TxtCategoryId.Name = "TxtCategoryId";
+            this.TxtCategoryId.Size = new System.Drawing.Size(202, 29);
+            this.TxtCategoryId.TabIndex = 3;
             // 
             // BtnSearch
             // 
@@ -131,14 +131,15 @@
             this.BtnList.TabIndex = 35;
             this.BtnList.Text = "Listele";
             this.BtnList.UseVisualStyleBackColor = false;
+            this.BtnList.Click += new System.EventHandler(this.BtnList_Click);
             // 
-            // textBox2
+            // TxtCategoryName
             // 
-            this.textBox2.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.textBox2.Location = new System.Drawing.Point(123, 69);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(202, 29);
-            this.textBox2.TabIndex = 41;
+            this.TxtCategoryName.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.TxtCategoryName.Location = new System.Drawing.Point(123, 69);
+            this.TxtCategoryName.Name = "TxtCategoryName";
+            this.TxtCategoryName.Size = new System.Drawing.Size(202, 29);
+            this.TxtCategoryName.TabIndex = 41;
             // 
             // dataGridView1
             // 
@@ -156,13 +157,13 @@
             this.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.ClientSize = new System.Drawing.Size(902, 344);
             this.Controls.Add(this.dataGridView1);
-            this.Controls.Add(this.textBox2);
+            this.Controls.Add(this.TxtCategoryName);
             this.Controls.Add(this.BtnSearch);
             this.Controls.Add(this.BtnUpdate);
             this.Controls.Add(this.BtnDelete);
             this.Controls.Add(this.BtnAdd);
             this.Controls.Add(this.BtnList);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.TxtCategoryId);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
@@ -173,7 +174,7 @@
             this.Name = "FrmCategory";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Kategori İşlemleri";
-            this.Load += new System.EventHandler(this.Form1_Load);
+            this.Load += new System.EventHandler(this.FrmCategory_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -183,13 +184,13 @@
         #endregion
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox TxtCategoryId;
         private System.Windows.Forms.Button BtnSearch;
         private System.Windows.Forms.Button BtnUpdate;
         private System.Windows.Forms.Button BtnDelete;
         private System.Windows.Forms.Button BtnAdd;
         private System.Windows.Forms.Button BtnList;
-        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.TextBox TxtCategoryName;
         private System.Windows.Forms.DataGridView dataGridView1;
     }
 }

@@ -16,10 +16,33 @@ namespace EntityFrameworkDbFirstProduct
         {
             InitializeComponent();
         }
+        DbProductEntities entities = new DbProductEntities();
+        Category category = new Category();
 
-        private void Form1_Load(object sender, EventArgs e)
+        private void clearTextAres()
         {
+            TxtCategoryId.Clear();
+            TxtCategoryName.Clear();
+        }
 
+        private void CategoryList()
+        {
+            dataGridView1.DataSource= entities.Category.ToList(); 
+        }
+        private void addToCategory()
+        {
+            
+        }
+
+
+        private void BtnList_Click(object sender, EventArgs e)
+        {
+            CategoryList();
+        }
+
+        private void FrmCategory_Load(object sender, EventArgs e)
+        {
+            CategoryList();
         }
     }
 }
