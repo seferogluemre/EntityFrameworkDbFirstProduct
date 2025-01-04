@@ -13,6 +13,7 @@ namespace EntityFrameworkDbFirstProduct
         DbProductEntities database = new DbProductEntities();
         Product TableProduct = new Product();
 
+        // CRUD METHODS 
         private void clearTextBoxes()
         {
             TxtProductId.Clear();
@@ -21,7 +22,6 @@ namespace EntityFrameworkDbFirstProduct
             TxtProductStock.Clear();
             CmbProductCategory.Text = "";
         }
-
         private void ProductList()
         {
             dataGridView1.DataSource = database.Product.ToList();
@@ -49,23 +49,30 @@ namespace EntityFrameworkDbFirstProduct
                 MessageBox.Show("Lütfen boş alan bırakmayınız", "Alanları kontrol ediniz", MessageBoxButtons.OK, MessageBoxIcon.Hand);
             }
         }
-
         private void deleteProduct()
         {
+            DialogResult dialog = new DialogResult();
+            dialog = MessageBox.Show("Ürünü silmek istediginize emin misiniz", "Uyarı", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+
             int productId = int.Parse(TxtProductId.Text.Trim());
             if (productId.ToString() != "")
             {
-                var values = database.Product.Find(productId);
-                database.Product.Remove(values);
-                database.SaveChanges();
-                ProductList();
-                clearTextBoxes();
+                if (dialog == DialogResult.Yes)
+                {
+                    var values = database.Product.Find(productId);
+                    database.Product.Remove(values);
+                    database.SaveChanges();
+                    ProductList();
+                    clearTextBoxes();
+                }
             }
             else
             {
                 MessageBox.Show("Hatalı id girişi", "Lütfen tekrar deneyiniz", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
+
+
 
         private void FrmProduct_Load(object sender, EventArgs e)
         {
@@ -74,6 +81,7 @@ namespace EntityFrameworkDbFirstProduct
             CmbProductCategory.ValueMember = "CategoryId";
             CmbProductCategory.DisplayMember = "CategoryName";
             CmbProductCategory.DataSource = values;
+            dataGridView1.AutoSizeColumnsMode = (DataGridViewAutoSizeColumnsMode)DataGridViewAutoSizeColumnMode.Fill;
         }
 
         private void BtnAdd_Click(object sender, EventArgs e)
