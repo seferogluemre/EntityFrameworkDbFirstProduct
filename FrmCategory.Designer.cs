@@ -92,6 +92,7 @@
             this.BtnUpdate.TabIndex = 38;
             this.BtnUpdate.Text = "Güncelle";
             this.BtnUpdate.UseVisualStyleBackColor = false;
+            this.BtnUpdate.Click += new System.EventHandler(this.BtnUpdate_Click);
             // 
             // BtnDelete
             // 
@@ -105,6 +106,7 @@
             this.BtnDelete.TabIndex = 37;
             this.BtnDelete.Text = "Sil";
             this.BtnDelete.UseVisualStyleBackColor = false;
+            this.BtnDelete.Click += new System.EventHandler(this.BtnDelete_Click);
             // 
             // BtnAdd
             // 
@@ -118,6 +120,7 @@
             this.BtnAdd.TabIndex = 36;
             this.BtnAdd.Text = "Ekle";
             this.BtnAdd.UseVisualStyleBackColor = false;
+            this.BtnAdd.Click += new System.EventHandler(this.BtnAdd_Click);
             // 
             // BtnList
             // 
